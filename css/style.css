@@ -71,6 +71,16 @@ color:black;
 background-color: red;
 }
 
+#reset{
+height: 70px;
+width:70px;
+border-radius: 40px;
+display: flex;
+margin-left: 110px;
+margin-top: 40px;
+
+}
+
 /* NOTE <--Aside   form  --> */
 .menueAside{
 
@@ -124,3 +134,4 @@ P{
 h3{
     margin:  20px 0px 0px 10px;
 }
+

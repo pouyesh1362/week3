@@ -1,4 +1,4 @@
-console.log('hello');
+// console.log('hello');
 const MainDiv = `<div class="mainTable"></div>`
 
 const mainTable = `<section>
@@ -36,36 +36,26 @@ function tableMaker(mainTable ){
     }
 }
 tableMaker(mainTable);
-// add id to each row of the table ######################
-
-// function addIdToRow(){
-//     for(let i = 0; i <10 ; i++){
-//     $(`.mainTable`).children().eq(i).attr('id' , `row${i}`);
-// }
-// }
-// addIdToRow();
-
-///add classto each <div> element at the row 
-
-// function addClassTodivs(){
-
-//     for (let i = 0 ; i < 10 ; i++){
-
-//      $(`section div`).addClass(`class=${i}`);
-     
-//     }
-// }
-// addClassTodivs();
 
 
 
+////////////////////////forme for player name display/////////
 
+formDisplay = function(event) {
+    console.log('hello');
+const form = `
 
+<form id="form">  <button class='PlayerNameButton' type="submit">Name</button>
+<input  class="playerNameInput"type="text" placeholder="name of the player">
+<input class='rolePlayer1' type="image" src="./images/dice.png"><br></input><button class='PlayerNameButton' type="submit">Name</button>
+<input  class="playerNameInput"type="text" placeholder="name of the player2">
+<input class='rolePlayer2' type="image" src="./images/dice.png"></input><input id='reset' type="image" src="./images/reset.jpg"></input>
 
-PlayerNameOn = function(event) {
-
-
+</form>
+`
+$(`.menueAside`).append(`${form}`);
+$(`#start`).hide();
 
 }
+$(`#start`).on('click', formDisplay);
 
-$(`#start`).on('subit','click', PlayerNameOn);
