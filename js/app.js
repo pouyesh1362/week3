@@ -23,31 +23,39 @@ const mainTableDiv = `<div class = "mainTable" ></div>`;
 $('main').append(`${mainTableDiv}`);
 
 function tableMaker(mainTable ){
-    for (let i = 0 ; i <10 ; i ++){
-$(`.mainTable`).append( `${mainTable}` );
+    for (let i = 1 ; i <=10 ; i ++){
+        $(`.mainTable`).append(`<section id = "row-${i}"></section>`);
+        //we have added a section on html 
+
+        // add a for loop to create divs individually, adding classes as we go
+        for (let j = 1 ; j <=10 ; j ++){
+            $(`#row-${i}`).append(`<div class= "square-${j}"></div>`);
+            //creating and adding a class  to the element <div></div>
+
+        }
     }
 }
 tableMaker(mainTable);
 // add id to each row of the table ######################
 
-function addIdToRow(){
-    for(let i = 0; i <10 ; i++){
-    $(`.mainTable`).children().eq(i).attr('id' , `row${i}`);
-}
-}
-addIdToRow();
+// function addIdToRow(){
+//     for(let i = 0; i <10 ; i++){
+//     $(`.mainTable`).children().eq(i).attr('id' , `row${i}`);
+// }
+// }
+// addIdToRow();
 
 ///add classto each <div> element at the row 
 
-function addClassTodivs(){
+// function addClassTodivs(){
 
-    for (let i = 0 ; i < 10 ; i++){
+//     for (let i = 0 ; i < 10 ; i++){
 
-     $(`section div`).addClass(`class=${i}`);
+//      $(`section div`).addClass(`class=${i}`);
      
-    }
-}
-addClassTodivs();
+//     }
+// }
+// addClassTodivs();
 
 
 
