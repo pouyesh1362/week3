@@ -30,6 +30,7 @@ function addIdToRow(){
 }
 }
 addIdToRow();
+
 function addClassTodivs(){
 
     for (let i = 0 ; i < 10 ; i++){
@@ -39,3 +40,16 @@ function addClassTodivs(){
     }
 }
 addClassTodivs();
+
+
+
+
+
+
+PlayerNameOn = function(event) {
+
+
+
+}
+
+$(`#start`).on('subit','click', PlayerNameOn);
