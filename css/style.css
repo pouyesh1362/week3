@@ -6,6 +6,8 @@ body{
     max-width: 1000px;
     margin: auto;
     background: rgb(62, 19, 19,.2);
+     overflow: hidden;
+     
 }
 
 /* NOTE <---------------------MAIN----------------> */
@@ -24,23 +26,26 @@ div{
 
 }
 .mainTable{
-
+display: flex;
+flex-direction: column;
 width:598px;
 height:598px;
 background-image: url("../images/snakes-and-ladders.png"); 
 background-repeat: no-repeat;
 background-size: cover;
 
+
+
 }
 
 
 
 #start{
-width: 100px;
-height: 30px;
+width: 150px;
+height: 50px;
 border: 2px solid black;
-margin:20px 100px;
-
+margin:15px 75px;
+border-radius: 20px;
 
 }
 
