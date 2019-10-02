@@ -1,0 +1,78 @@
+html{
+margin:10px;
+
+}
+body{
+    max-width: 1000px;
+    margin: auto;
+    background: rgb(62, 19, 19,.2);
+}
+
+/* NOTE <---------------------MAIN----------------> */
+
+
+section{
+    display:flex;
+    flex-direction: row;
+}
+
+div{
+
+    border:1px solid black;
+    width: 60px;
+    height: 58px;
+
+}
+.mainTable{
+
+width:598px;
+height:598px;
+background-image: url("../images/snakes-and-ladders.png"); 
+background-repeat: no-repeat;
+background-size: cover;
+
+}
+
+
+
+#start{
+width: 100px;
+height: 30px;
+border: 2px solid black;
+margin:20px 100px;
+
+
+}
+
+/* NOTE <--Aside --> */
+.menueAside{
+
+    float: right;
+    width: 300px;
+    height: 598px;
+    background: blue;
+    margin-left: 10px;
+    border-radius: 20px 20px;
+    }
+
+.addPlayerButton{
+    height: 20px;
+    width: 50px;
+    margin: 2px 2px 2px 2px;
+   
+}
+.PlayerNameButton{
+    height: 20px;
+    width: 50px;
+    margin: 2px 2px 2px 2px;
+}
+/* NOTE <------------------ ASIDE / Dice--------------------> */
+.dice{
+  
+    width: 120px;
+    padding: 10px;
+    background: black;
+    margin: 20px;
+    margin: 50px 80px 10px 80px;
+  
+  }
