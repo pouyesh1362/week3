@@ -14,6 +14,11 @@ const mainTable = `<section>
 <div></div>
 </section>`;
 
+
+
+
+//made a table 10 *10########################
+
 const mainTableDiv = `<div class = "mainTable" ></div>`;
 $('main').append(`${mainTableDiv}`);
 
@@ -23,6 +28,7 @@ $(`.mainTable`).append( `${mainTable}` );
     }
 }
 tableMaker(mainTable);
+// add id to each row of the table ######################
 
 function addIdToRow(){
     for(let i = 0; i <10 ; i++){
@@ -30,6 +36,8 @@ function addIdToRow(){
 }
 }
 addIdToRow();
+
+///add classto each <div> element at the row 
 
 function addClassTodivs(){
 

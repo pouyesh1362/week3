@@ -1,7 +1,7 @@
 html{
-margin:10px;
-
+margin:15px;
 }
+
 body{
     max-width: 1000px;
     margin: auto;
@@ -38,15 +38,37 @@ background-size: cover;
 
 }
 
+/* NOTE  ---------------   dice -----------------> */
+.rolePlayer2 ,.rolePlayer1{
+
+    width: 30px;
+    height: 30px;
+}
+
+.rolePlayer1:hover{
+
+    width: 32px;
+    height: 32px;
+}
+.rolePlayer2:hover{
+
+    width: 32px;
+    height: 32px;
+}
 
 
+/* NOTE ------------------------START----------- */
 #start{
 width: 150px;
 height: 50px;
 border: 2px solid black;
 margin:15px 75px;
 border-radius: 20px;
+}
 
+#start:hover{
+color:black;
+background-color: red;
 }
 
 /* NOTE <--Aside --> */
