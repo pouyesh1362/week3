@@ -66,7 +66,8 @@ event.preventDefault();
  const valInputName1 = $(`.playerNameInput1`).val();
 
  const newPlayerForm1 = `
-<p id="player1Score">${valInputName1} score :<span class="player1Score"> 0 </span> </p><input class='rolePlayer1' type="image" src="./images/dice.png"><br></input>`
+<p id="player1Score">${valInputName1} score :<span class="player1Score"> 0 </span> </p><input class='ready1' type="image" src="./images/ready.png">`
+
    
  if(valInputName1 === "")
  {
@@ -75,15 +76,14 @@ event.preventDefault();
     $(`.menueAside`).append(`${newPlayerForm1}`);
     $(`.playerNameInput1`).hide();
     $(`.PlayerNameButton1`).hide();
-
  }
  }
-///////////////////////////////addPlayer event  hide the person////
+/////////////addPlayer event  hide the person////
  const addPlayerName2 = function(event){
 event.preventDefault();{
 const valInputName2 = $(`.playerNameInput2`).val();
 const newPlayerForm2 =`
-<p id="player2Score">${valInputName2} score :<span class="player2Score"> 0 </span> </p><input class='rolePlayer2' type="image" src="./images/dice.png"></input><input id='reset' type="image" src="./images/reset.jpg"></input>`
+<p id="player2Score">${valInputName2} score :<span class="player2Score"> 0 </span> </p><input class='ready2' type="image" src="./images/ready.png">`
 
 if(valInputName2 === ""){
      alert("please enter a valid name!")
@@ -91,37 +91,87 @@ if(valInputName2 === ""){
 $(`.menueAside`).append(`${newPlayerForm2}`);
 $(`.playerNameInput2`).hide();
 $(`.PlayerNameButton2`).hide();
+
     }
  }
 }
+
+//////////////////////////////Ready on click//////////////////
+
+const diceShow1 = function(event){
+    event.preventDefault();{
+    $(`.ready1`).hide();
+    const dices1 = `<div class= 'diceDisplay'><input class='rolePlayer1' type="image" src="./images/dice.png"></input></div>`;
+
+    $(`.menueAside`).append(`${dices1}`);
+
+    }
+
+}
+const diceShow2 = function(event){
+    event.preventDefault();{
+$(`.ready2`).hide();
+const dices2 = `<div class= 'diceDisplay'><input class='rolePlayer2' type="image" src="./images/dice.png"></input></div><input id='reset' type="image" src="./images/reset.jpg"></input></div<input>`;
+
+$(`.menueAside`).append(`${dices2}`);
+
+    }
+}
+
 
 //<------------form and reset button  display----------------
 
 
 // NOTE <-------------//diseRoll img random number  --------------------//changing round for players 
-
-
-
-
+ 
 
 
 const diceRoll = function(event){
-const diceNumber =Math.floor(Math.random() * 6 )+ 1 ;   
-$(`.dice`).attr('src' ,'./images/dice-'+diceNumber+'.png');
+const diceNumber1 =Math.floor(Math.random() * 6 )+ 1 ;   
+$(`.dice`).attr('src' ,'./images/dice-'+diceNumber1+'.png');
 $(`.rolePlayer1`).css('display' , 'none');
 $(`.rolePlayer2`).css('display' , 'initial');
  
-return diceNumber;
+return diceNumber1;
 }
 
 const diceRoll1 = function(event){
-    const diceNumber =Math.floor(Math.random() * 6 )+ 1 ;
-    $(`.dice`).attr('src' ,'./images/green-dice-'+diceNumber+'.png');
+    const diceNumber2 =Math.floor(Math.random() * 6 )+ 1 ;
+    $(`.dice`).attr('src' ,'./images/green-dice-'+diceNumber2+'.png');
     $(`.rolePlayer2`).css('display' , 'none');
     $(`.rolePlayer1`).css('display' , 'initial');
     
-    return diceNumber;
+
+    return diceNumber2;
     }
+
+function startGame(){
+    const p1Dice = diceRoll();
+    const p2Dice = diceRoll1();
+    const $p1Object =`<span id ="Pla1"><img class="pla1" src="./images/pla1.png" ></span>`;
+    const $p2Object  = `<span id ="Pla2"><img class="pla2" src="./images/pla2.png" ></span>`;
+
+//     $(`#row-1 .square-1`).append(`${$p1Object}`);
+//     $(`#row-1 .square-1`).append(`${$p2Object}`);
+// }
+    if(p1Dice === 6){
+     
+        $(`#row-1 .square-1`).append(`${$p1Object}`);
+    }
+    if(p2Dice === 6){
+        
+        $(`#row-1 .square-1`).append(`${$p2Object}`);
+        }
+    }
+  
+
+
+
+
+
+
+
+
 
 
 ///////NOTE Players added   Aside++++++++++
@@ -130,3 +180,5 @@ $(`.menueAside`).on('click','.PlayerNameButton1', addPlayerName1 );
 $(`.menueAside`).on('click','.PlayerNameButton2', addPlayerName2 );
 $(`.menueAside`).on('click', '.rolePlayer1' , diceRoll);
 $(`.menueAside`).on('click', '.rolePlayer2' , diceRoll1);
+$(`.menueAside`).on('click', '.ready1', diceShow1);
+$(`.menueAside`).on('click', '.ready2', diceShow2);
