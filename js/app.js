@@ -86,8 +86,29 @@ $(`.PlayerNameButton2`).hide();
  }
 
 //<------------form and reset button  display----------------
+
+
+// NOTE <-------------diseRoll img random number --------------------
+
+
+
+
+const diceRoll = function(event){
+const diceNumber =Math.floor(Math.random() * 6 )+ 1 ;   
+$(`.dice`).attr('src' ,'./images/dice-'+diceNumber+'.png');
+return diceNumber;
+}
+
+const diceRoll1 = function(event){
+    const diceNumber =Math.floor(Math.random() * 6 )+ 1 ;
+    $(`.dice`).attr('src' ,'./images/green-dice-'+diceNumber+'.png');
+    return diceNumber;
+    }
+
+
+///////NOTE Players added   Aside++++++++++
 $(`#start`).on('click', formDisplay);
 $(`.menueAside`).on('click','.PlayerNameButton1', addPlayerName1 );
 $(`.menueAside`).on('click','.PlayerNameButton2', addPlayerName2 );
-///////NOTE Players added   Aside++++++++++
-
+$(`.menueAside`).on('click', '.rolePlayer1' , diceRoll);
+$(`.menueAside`).on('click', '.rolePlayer2' , diceRoll1);

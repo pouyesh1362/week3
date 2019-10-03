@@ -148,10 +148,11 @@ width:80px;
   
     width: 120px;
     padding: 10px;
-    background: black;
+    border: 3px solid white;
     border-radius: 20px;
     margin: 20px;
     margin: 50px 80px 10px 80px;
+    
   
   }
   /* NOTE <-----------------------asid P--------------> */
@@ -164,7 +165,5 @@ P{
     border-radius: 10px;
     background-color: aqua;
 }
-
-
 
 
