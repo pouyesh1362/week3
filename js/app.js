@@ -59,36 +59,47 @@ $(`#start`).hide();
 
 
 ///////NOTE Players added   Aside++++++++++
-///////////////////////////////addPlayer event  hide the person////
+///////////////////addPlayer event  hide the person////
+////  added condition for name input cant't be empty 
 const addPlayerName1 = function(event){
 event.preventDefault();
  const valInputName1 = $(`.playerNameInput1`).val();
-   
- 
-const newPlayerForm1 = `
+
+ const newPlayerForm1 = `
 <p id="player1Score">${valInputName1} score :<span class="player1Score"> 0 </span> </p><input class='rolePlayer1' type="image" src="./images/dice.png"><br></input>`
-$(`.menueAside`).append(`${newPlayerForm1}`);
-$(`.playerNameInput1`).hide();
-$(`.PlayerNameButton1`).hide();
+   
+ if(valInputName1 === "")
+ {
+     alert("please enter a valid name!")
+ }else {
+    $(`.menueAside`).append(`${newPlayerForm1}`);
+    $(`.playerNameInput1`).hide();
+    $(`.PlayerNameButton1`).hide();
 
-
+ }
  }
 ///////////////////////////////addPlayer event  hide the person////
  const addPlayerName2 = function(event){
 event.preventDefault();{
 const valInputName2 = $(`.playerNameInput2`).val();
-const newPlayerForm2 =`<p id="player2Score">${valInputName2} score :<span class="player2Score"> 0 </span> </p><input class='rolePlayer2' type="image" src="./images/dice.png"></input><input id='reset' type="image" src="./images/reset.jpg"></input>`
+const newPlayerForm2 =`
+<p id="player2Score">${valInputName2} score :<span class="player2Score"> 0 </span> </p><input class='rolePlayer2' type="image" src="./images/dice.png"></input><input id='reset' type="image" src="./images/reset.jpg"></input>`
+
+if(valInputName2 === ""){
+     alert("please enter a valid name!")
+ }else {
 $(`.menueAside`).append(`${newPlayerForm2}`);
 $(`.playerNameInput2`).hide();
 $(`.PlayerNameButton2`).hide();
     }
-
  }
+}
 
 //<------------form and reset button  display----------------
 
 
-// NOTE <-------------diseRoll img random number  --------------------
+// NOTE <-------------//diseRoll img random number  --------------------//changing round for players 
+
 
 
 
