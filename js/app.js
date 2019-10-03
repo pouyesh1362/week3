@@ -38,24 +38,57 @@ function tableMaker(mainTable ){
 tableMaker(mainTable);
 
 
-
+////NOTE    ASIDE ADD FORM///////////////////////////////
 ////////////////////////forme for player name display/////////
 
-formDisplay = function(event) {
-    console.log('hello');
+const formDisplay = function(event) {
+   
 const form = `
 
-<form id="form">  <button class='PlayerNameButton' type="submit">Name</button>
-<input  class="playerNameInput"type="text" placeholder="name of the player">
-<input class='rolePlayer1' type="image" src="./images/dice.png"><br></input><button class='PlayerNameButton' type="submit">Name</button>
-<input  class="playerNameInput"type="text" placeholder="name of the player2">
-<input class='rolePlayer2' type="image" src="./images/dice.png"></input><input id='reset' type="image" src="./images/reset.jpg"></input>
+<form id="form">  <button class='PlayerNameButton1' type="submit">Name</button>
+<input  class="playerNameInput1"type="text" placeholder="name of the player"><br><br>
+<button class='PlayerNameButton2' type="submit">Name</button>
+<input  class="playerNameInput2"type="text" placeholder="name of the player2">
+
 
 </form>
 `
 $(`.menueAside`).append(`${form}`);
 $(`#start`).hide();
-
 }
+
+
+
+///////NOTE Players added   Aside++++++++++
+///////////////////////////////addPlayer event  hide the person////
+const addPlayerName1 = function(event){
+event.preventDefault();
+ const valInputName1 = $(`.playerNameInput1`).val();
+   
+ 
+const newPlayerForm1 = `
+<p id="player1Score">${valInputName1} score :<span class="player1Score"> 0 </span> </p><input class='rolePlayer1' type="image" src="./images/dice.png"><br></input>`
+$(`.menueAside`).append(`${newPlayerForm1}`);
+$(`.playerNameInput1`).hide();
+$(`.PlayerNameButton1`).hide();
+
+
+ }
+///////////////////////////////addPlayer event  hide the person////
+ const addPlayerName2 = function(event){
+event.preventDefault();{
+const valInputName2 = $(`.playerNameInput2`).val();
+const newPlayerForm2 =`<p id="player2Score">${valInputName2} score :<span class="player2Score"> 0 </span> </p><input class='rolePlayer2' type="image" src="./images/dice.png"></input><input id='reset' type="image" src="./images/reset.jpg"></input>`
+$(`.menueAside`).append(`${newPlayerForm2}`);
+$(`.playerNameInput2`).hide();
+$(`.PlayerNameButton2`).hide();
+    }
+
+ }
+
+//<------------form and reset button  display----------------
 $(`#start`).on('click', formDisplay);
+$(`.menueAside`).on('click','.PlayerNameButton1', addPlayerName1 );
+$(`.menueAside`).on('click','.PlayerNameButton2', addPlayerName2 );
+///////NOTE Players added   Aside++++++++++
 
