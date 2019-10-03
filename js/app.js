@@ -58,7 +58,6 @@ $(`#start`).hide();
 }
 
 
-
 ///////NOTE Players added   Aside++++++++++
 ///////////////////////////////addPlayer event  hide the person////
 const addPlayerName1 = function(event){

@@ -61,14 +61,20 @@ background-size: cover;
 #start{
 width: 150px;
 height: 50px;
+color: aliceblue;
+font-family: Georgia, 'Times New Roman', Times, serif;
 border: 2px solid black;
+background: red;
 margin:15px 75px;
 border-radius: 20px;
 }
 
 #start:hover{
+width: 154px;
+height: 54px;
 color:black;
-background-color: red;
+background-color:greenyellow;
+
 }
 
 #reset{
@@ -79,6 +85,10 @@ display: flex;
 margin-left: 110px;
 margin-top: 40px;
 
+}
+#reset:hover{
+height: 80px;
+width:80px;
 }
 
 /* NOTE <--Aside   form  --> */
@@ -91,24 +101,55 @@ margin-top: 40px;
     margin-left: 10px;
     border-radius: 20px 20px;
     }
-
-.addPlayerButton{
-    height: 20px;
-    width: 50px;
-    margin: 2px 2px 2px 2px;
+/* <----------------------------name button-------------- */
    
-}
-.PlayerNameButton{
+.PlayerNameButton1{
     height: 20px;
     width: 50px;
-    margin: 2px 2px 2px 2px;
+    margin: 2px 2px 2px 10px;
+
 }
+.PlayerNameButton1:hover{
+
+    background: red;
+    height: 22px;
+    width:52px;
+    border-radius: 20px 20px;
+}
+
+.PlayerNameButton2{
+
+    height: 20px;
+    width: 50px;
+    margin: 2px 2px 2px 10px;
+
+}
+.PlayerNameButton2:hover{
+    background: red;
+    height: 22px;
+    width:52px;
+    border-radius: 20px 20px;
+}
+
+/* <--------------------------------nameInput----------- */
+.playerNameInput1, .playerNameInput2{
+
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 13px;
+    color: white;
+    background:black;
+    border-radius: 10px;
+}
+
+
+
 /* NOTE <------------------ ASIDE / Dice--------------------> */
 .dice{
   
     width: 120px;
     padding: 10px;
     background: black;
+    border-radius: 20px;
     margin: 20px;
     margin: 50px 80px 10px 80px;
   
@@ -123,15 +164,7 @@ P{
     border-radius: 10px;
     background-color: aqua;
 }
-#namePlayer1{
 
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 20px;
-    color: blueviolet;
 
-}
 
-h3{
-    margin:  20px 0px 0px 10px;
-}
 
