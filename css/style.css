@@ -33,7 +33,7 @@ height:598px;
 background-image: url("../images/snakes-and-ladders.png"); 
 background-repeat: no-repeat;
 background-size: cover;
-
+float: left;
 
 
 }

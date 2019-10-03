@@ -23,7 +23,7 @@ const mainTableDiv = `<div class = "mainTable" ></div>`;
 $('main').append(`${mainTableDiv}`);
 
 function tableMaker(mainTable ){
-    for (let i = 1 ; i <=10 ; i ++){
+    for (let i = 10 ; i >= 1 ; i --){
         $(`.mainTable`).append(`<section id = "row-${i}"></section>`);
         //we have added a section on html 
 
@@ -88,7 +88,8 @@ $(`.PlayerNameButton2`).hide();
 //<------------form and reset button  display----------------
 
 
-// NOTE <-------------diseRoll img random number --------------------
+// NOTE <-------------diseRoll img random number  --------------------
+
 
 
 
@@ -96,12 +97,18 @@ $(`.PlayerNameButton2`).hide();
 const diceRoll = function(event){
 const diceNumber =Math.floor(Math.random() * 6 )+ 1 ;   
 $(`.dice`).attr('src' ,'./images/dice-'+diceNumber+'.png');
+$(`.rolePlayer1`).css('display' , 'none');
+$(`.rolePlayer2`).css('display' , 'initial');
+ 
 return diceNumber;
 }
 
 const diceRoll1 = function(event){
     const diceNumber =Math.floor(Math.random() * 6 )+ 1 ;
     $(`.dice`).attr('src' ,'./images/green-dice-'+diceNumber+'.png');
+    $(`.rolePlayer2`).css('display' , 'none');
+    $(`.rolePlayer1`).css('display' , 'initial');
+    
     return diceNumber;
     }
 
