@@ -1,4 +1,4 @@
-// console.log('hello');
+console.log('hello');
 const MainDiv = `<div class="mainTable"></div>`
 
 const mainTable = `<section>
@@ -36,6 +36,37 @@ function tableMaker(mainTable ){
     }
 }
 tableMaker(mainTable);
+
+// const MainDiv = `<div class="mainTable"></div>`
+
+// const mainTable = `
+// <div></div>
+// <div></div>
+// <div></div>
+// <div></div>
+// <div></div>
+// <div></div>
+// <div></div>
+// <div></div>
+// <div></div>
+// <div></div>
+// `;
+
+// const mainTableDiv = `<div class = "mainTable" ></div>`;
+
+// function tableMaker(mainTable ){
+//     $('main').append(`${mainTableDiv}`);
+
+//         // add a for loop to create divs individually, adding classes as we go
+//         for (let j = 100 ; j >0 ; j--){
+//             $(`.mainTable`).append(`<div class= "square-${j}"></div>`);
+//             //creating and adding a class  to the element <div></div>
+
+//         }
+//     }
+
+// tableMaker(mainTable);
+
 
 
 ////NOTE    ASIDE ADD FORM///////////////////////////////
@@ -99,25 +130,27 @@ $(`.PlayerNameButton2`).hide();
 //////////////////////////////Ready on click//////////////////
 
 const diceShow1 = function(event){
-    event.preventDefault();{
-    $(`.ready1`).hide();
+    
+        $(`.ready1`).hide();
     const dices1 = `<div class= 'diceDisplay'><input class='rolePlayer1' type="image" src="./images/dice.png"></input></div>`;
 
     $(`.menueAside`).append(`${dices1}`);
 
-    }
+    
 
 }
 const diceShow2 = function(event){
-    event.preventDefault();{
+    
 $(`.ready2`).hide();
 const dices2 = `<div class= 'diceDisplay'><input class='rolePlayer2' type="image" src="./images/dice.png"></input></div><input id='reset' type="image" src="./images/reset.jpg"></input></div<input>`;
 
 $(`.menueAside`).append(`${dices2}`);
 
 
-    }
+    
 }
+
+
 
 
 //<------------form and reset button  display----------------
@@ -126,39 +159,30 @@ $(`.menueAside`).append(`${dices2}`);
 // NOTE <-------------//diseRoll img random number  --------------------//changing round for players 
  
 
-const diceRoll = function(event){
-const diceNumber1 = Math.floor(Math.random() * 6 )+ 1 ;  
 
-let j;
+const diceRandom = function(){
+    return Math.floor(Math.random() * 6 )+ 1 ;  
+    
+} 
+
+
+const diceRoll = function(event){
+const diceNumber1 = diceRandom(); 
+
+
 $(`.dice`).attr('src' ,'./images/dice-'+diceNumber1+'.png');
 $(`.rolePlayer1`).css('display' , 'none');
 $(`.rolePlayer2`).css('display' , 'initial');
-
-if(diceNumber1 === 6){ 
-    for( j = 0 ; j < 1;j++){
-    player1Start();   
-}
-}
-
-console.log(j);
-
 return diceNumber1;
 }
 
 const diceRoll1 = function(event){
-    const diceNumber2 =Math.floor(Math.random() * 6 )+ 1 ;
-    let i;
+    const diceNumber2 = diceRandom();
+    
+
     $(`.dice`).attr('src' ,'./images/green-dice-'+diceNumber2+'.png');
     $(`.rolePlayer2`).css('display' , 'none');
     $(`.rolePlayer1`).css('display' , 'initial');
-    
-    if(diceNumber2 === 6){
-        for(i =  0; i < 1; i ++){
-        player2Start();   
-        }
-        
-   } 
-   
     return diceNumber2;
     }
     
@@ -179,6 +203,36 @@ const player2Start = function(){
     $(`#row-1 .square-1`).append(`${$p2Object}`);
 
 }
+
+
+
+const startGameDise1 = function(event){
+   
+
+            if(diceRoll() !== 6){
+                diceRoll();
+           }else{
+           diceShow1();
+            player1Start();
+        }
+    }
+    
+
+
+const startGameDice2 = function(event){
+   
+
+    if(diceRoll1() !== 6){
+        diceRoll1();
+    }else{
+    diceShow2();
+    console.log('11111');
+    player2Start();
+    console.log('2222');
+    }
+}
+
+
 ////////////////////////GAME start positioning the player if they have 6 
 
 
@@ -197,10 +251,29 @@ const player2Start = function(){
 
 
 ///////NOTE Players added   Aside++++++++++
+
+
+
+///creat the table and in JQ
+//Creat form and input by cliking the start button;
+
 $(`#start`).on('click', formDisplay);
+
+
+///creating P and span for saving the input;
+///creating ready button and
 $(`.menueAside`).on('click','.PlayerNameButton1', addPlayerName1 );
 $(`.menueAside`).on('click','.PlayerNameButton2', addPlayerName2 );
-$(`.menueAside`).on('click', '.ready1', diceShow1);
-$(`.menueAside`).on('click', '.ready2', diceShow2);
-$(`.menueAside`).on('click', '.rolePlayer1' , diceRoll);
-$(`.menueAside`).on('click', '.rolePlayer2' , diceRoll1);
+
+//cliking ready and have it to show start game dice 
+//starrt gamedice have to run startGame function ;
+
+//
+$(`.menueAside`).on('click', '.ready1', startGameDise1);
+$(`.menueAside`).on('click', '.ready2', startGameDice2);
+
+// start happend have to re create the dice for continue;
+
+
+// $(`.menueAside`).on('click', '.rolePlayer1' , diceRoll);
+// $(`.menueAside`).on('click', '.rolePlayer2' , diceRoll1);

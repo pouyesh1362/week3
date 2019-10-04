@@ -56,9 +56,6 @@ float: left;
     height: 32px;
 }
 
-.diceDisplay{
-    border: none;
-    }
 
 /* NOTE ------------------------START----------- */
 #start{
@@ -185,4 +182,7 @@ P{
     border-radius: 10px;
     margin: 15px 0px 0px 10px; 
 
+}
+.diceDisplay{
+border: none;
 }
