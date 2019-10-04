@@ -115,6 +115,7 @@ const dices2 = `<div class= 'diceDisplay'><input class='rolePlayer2' type="image
 
 $(`.menueAside`).append(`${dices2}`);
 
+
     }
 }
 
@@ -125,44 +126,65 @@ $(`.menueAside`).append(`${dices2}`);
 // NOTE <-------------//diseRoll img random number  --------------------//changing round for players 
  
 
-
 const diceRoll = function(event){
-const diceNumber1 =Math.floor(Math.random() * 6 )+ 1 ;   
+const diceNumber1 = Math.floor(Math.random() * 6 )+ 1 ;  
+
+let j;
 $(`.dice`).attr('src' ,'./images/dice-'+diceNumber1+'.png');
 $(`.rolePlayer1`).css('display' , 'none');
 $(`.rolePlayer2`).css('display' , 'initial');
- 
+
+if(diceNumber1 === 6){ 
+    for( j = 0 ; j < 1;j++){
+    player1Start();   
+}
+}
+
+console.log(j);
+
 return diceNumber1;
 }
 
 const diceRoll1 = function(event){
     const diceNumber2 =Math.floor(Math.random() * 6 )+ 1 ;
+    let i;
     $(`.dice`).attr('src' ,'./images/green-dice-'+diceNumber2+'.png');
     $(`.rolePlayer2`).css('display' , 'none');
     $(`.rolePlayer1`).css('display' , 'initial');
     
-
+    if(diceNumber2 === 6){
+        for(i =  0; i < 1; i ++){
+        player2Start();   
+        }
+        
+   } 
+   
     return diceNumber2;
     }
+    
 
-function startGame(){
-    const p1Dice = diceRoll();
-    const p2Dice = diceRoll1();
+    /////////////////////Game logic ////////////
+    ///fist start to rolea dice for start
+
+
+const player1Start =function (){
+    console.log("player1Start")
     const $p1Object =`<span id ="Pla1"><img class="pla1" src="./images/pla1.png" ></span>`;
-    const $p2Object  = `<span id ="Pla2"><img class="pla2" src="./images/pla2.png" ></span>`;
+    $(`#row-1 .square-1`).append(`${$p1Object}`);
+    
+}
 
-//     $(`#row-1 .square-1`).append(`${$p1Object}`);
-//     $(`#row-1 .square-1`).append(`${$p2Object}`);
-// }
-    if(p1Dice === 6){
-     
-        $(`#row-1 .square-1`).append(`${$p1Object}`);
-    }
-    if(p2Dice === 6){
-        
-        $(`#row-1 .square-1`).append(`${$p2Object}`);
-        }
-    }
+const player2Start = function(){
+    const $p2Object  = `<span id ="Pla2"><img class="pla2" src="./images/pla2.png" ></span>`;
+    $(`#row-1 .square-1`).append(`${$p2Object}`);
+
+}
+////////////////////////GAME start positioning the player if they have 6 
+
+
+
+
+
   
 
 
@@ -178,7 +200,7 @@ function startGame(){
 $(`#start`).on('click', formDisplay);
 $(`.menueAside`).on('click','.PlayerNameButton1', addPlayerName1 );
 $(`.menueAside`).on('click','.PlayerNameButton2', addPlayerName2 );
-$(`.menueAside`).on('click', '.rolePlayer1' , diceRoll);
-$(`.menueAside`).on('click', '.rolePlayer2' , diceRoll1);
 $(`.menueAside`).on('click', '.ready1', diceShow1);
 $(`.menueAside`).on('click', '.ready2', diceShow2);
+$(`.menueAside`).on('click', '.rolePlayer1' , diceRoll);
+$(`.menueAside`).on('click', '.rolePlayer2' , diceRoll1);
