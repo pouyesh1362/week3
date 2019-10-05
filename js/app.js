@@ -28,10 +28,15 @@ function tableMaker(mainTable ){
         //we have added a section on html 
 
         // add a for loop to create divs individually, adding classes as we go
-        for (let j = 1 ; j <=10 ; j ++){
+            if( i %2 == 0){
+                for(let k = 10 ;k >= 1 ; k--){
+                    $(`#row-${i}`).append(`<div class= "square-${k}"></div>`);
+                }
+            }else { for (let j = 1 ; j <=10 ; j ++)
+            
             $(`#row-${i}`).append(`<div class= "square-${j}"></div>`);
             //creating and adding a class  to the element <div></div>
-
+                
         }
     }
 }
@@ -243,18 +248,16 @@ const continue1 = function(event){
     let y = pla1Span();
     let p1firstRandom =  diceRoll();  ///grab the element 
     countPl1 +=  p1firstRandom;  
-    let rowP1 = countPl1 / 10;
-
-    if(rowP1 / rowP1 === 1 )
-    {
-        rowP1 = countPl1 / 10;    //rowp1 initialization
-    }else {
-        rowP1 = rowP1 % 10
-    }
+    let rowP1 =Math.floor(countPl1/ 10); 
+    let index1 = countPl1 % 10;
     
-if(countPl1 > 10 ){              
+    console.log(rowP1);
+    console.log(`index1 `,index1);
+    console.log(`countPl2` , countPl1);
+    
+if(countPl1 >= 10 ){              
 
-    $(`#row-${rowP1}`).children().eq(p1firstRandom).append(`${y}`);
+    $(`#row-${rowP1+1}`).children().eq(9 -  index1).append(`${y}`);
 }else{
     $(`#row-1`).children().eq(countPl1).append(`${y}`);
 }
@@ -267,18 +270,17 @@ var countPl2 = 0;
     let y = pla2Span();
     let p2firstRandom =  diceRoll1(); 
     countPl2 +=  p2firstRandom;
-    let rowP2 = countPl2 / 10;
-
-    if(rowP2 / rowP2 === 1 )
-    {
-        rowP2 = countPl2 / 10;    //rowp2 initialization
-    }else {
-        rowP2 = rowP2 % 10
-    }
+    let rowP2 = Math.floor(countPl2/ 10); 
+    let index2 = countPl2 % 10;
     
-if(countPl2 > 10 ){              
+    console.log(rowP2);
+    console.log(`index2 `,index2);
 
-    $(`#row-${rowP2}`).children().eq(p2firstRandom).append(`${y}`);
+    console.log(`countPl2` , countPl2);
+    
+if(countPl2 >= 10 ){              
+
+    $(`#row-${rowP2+1}`).children().eq(9 - index2).append(`${y}`);
 }else{
     $(`#row-1`).children().eq(countPl2).append(`${y}`);
 }

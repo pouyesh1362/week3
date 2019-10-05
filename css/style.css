@@ -17,6 +17,10 @@ section{
     display:flex;
     flex-direction: row;
 }
+#row2 , #row4, #row6, #row8, #row10{
+
+    flex-direction: row-reverse;
+}
 
 div{
 
