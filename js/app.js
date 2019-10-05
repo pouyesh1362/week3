@@ -191,14 +191,13 @@ const diceRoll1 = function(event){
     ///fist start to rolea dice for start
 
 
-const player1Start =function (){
-    console.log("player1Start")
+const player1 =function (){
     const $p1Object =`<span id ="Pla1"><img class="pla1" src="./images/pla1.png" ></span>`;
     $(`#row-1 .square-1`).append(`${$p1Object}`);
     
 }
 
-const player2Start = function(){
+const player2 = function(){
     const $p2Object  = `<span id ="Pla2"><img class="pla2" src="./images/pla2.png" ></span>`;
     $(`#row-1 .square-1`).append(`${$p2Object}`);
 
@@ -208,39 +207,42 @@ const player2Start = function(){
 
 const startGameDise1 = function(event){
    
-
-            if(diceRoll() !== 6){
-                diceRoll();
-           }else{
+            if(diceRoll() === 6){
            diceShow1();
-            player1Start();
+            player1();
+            
         }
     }
     
 
-
 const startGameDice2 = function(event){
    
-
-    if(diceRoll1() !== 6){
-        diceRoll1();
-    }else{
-    diceShow2();
-    console.log('11111');
-    player2Start();
-    console.log('2222');
+    if(diceRoll1() === 6) {
+        diceShow2();
+        player2();
     }
 }
 
 
 ////////////////////////GAME start positioning the player if they have 6 
+/////////NOTE ///////////Game continue//////////////////////
+
+const continue1 = function(event){
+
+    diceRoll();
+    
+    
 
 
 
 
 
-  
+}
+// const continue2 = function(event){
 
+
+    
+// }
 
 
 
@@ -275,5 +277,5 @@ $(`.menueAside`).on('click', '.ready2', startGameDice2);
 // start happend have to re create the dice for continue;
 
 
-// $(`.menueAside`).on('click', '.rolePlayer1' , diceRoll);
-// $(`.menueAside`).on('click', '.rolePlayer2' , diceRoll1);
+$(`.menueAside`).on('click', '.rolePlayer1' , continue1);
+// $(`.menueAside`).on('click', '.rolePlayer2' , continue2);

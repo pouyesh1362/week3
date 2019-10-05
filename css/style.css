@@ -174,7 +174,18 @@ P{
     z-index: 100;
     border-radius: 30px;
 }
-
+.pla1:hover{
+    width: 40px;
+    height: 40px;
+    z-index: 100;
+    border: 2px solid red;
+}
+.pla2:hover{
+    width: 40px;
+    height: 40px;
+    z-index: 100;
+    border: 2px solid red;
+}
 .ready1 , .ready2{
 
     width: 70px;
@@ -184,5 +195,6 @@ P{
 
 }
 .diceDisplay{
+display: inline-table;
 border: none;
 }
