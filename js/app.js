@@ -202,6 +202,14 @@ const player2 = function(){
     $(`#row-1 .square-1`).append(`${$p2Object}`);
 
 }
+const pla1Span  = function(){
+    const $p1Object =`<span id ="Pla1"><img class="pla1" src="./images/pla1.png" ></span>`;
+return $p1Object;
+}
+const pla2Span = function(){
+    const $p2Object  = `<span id ="Pla2"><img class="pla2" src="./images/pla2.png" ></span>`;
+    return $p2Object;
+}
 
 
 
@@ -229,20 +237,21 @@ const startGameDice2 = function(event){
 
 const continue1 = function(event){
 
-    diceRoll();
-    
-    
-
-
-
-
+    let x = diceRoll();
+    $(`#Pla1`).remove();
+    let y = pla1Span();
+    $(`#row-1`).children().eq(x).append(`${y}`);
+   
 
 }
-// const continue2 = function(event){
+ const continue2 = function(event){
 
-
+    let z = diceRoll1();
+    $(`#Pla2`).remove();
+    let y = pla2Span();
+    $(`#row-1`).children().eq(z).append(`${y}`);
     
-// }
+ }
 
 
 
@@ -278,4 +287,4 @@ $(`.menueAside`).on('click', '.ready2', startGameDice2);
 
 
 $(`.menueAside`).on('click', '.rolePlayer1' , continue1);
-// $(`.menueAside`).on('click', '.rolePlayer2' , continue2);
+$(`.menueAside`).on('click', '.rolePlayer2' , continue2);
