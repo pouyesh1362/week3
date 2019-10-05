@@ -235,22 +235,53 @@ const startGameDice2 = function(event){
 ////////////////////////GAME start positioning the player if they have 6 
 /////////NOTE ///////////Game continue//////////////////////
 
+var countPl1 = 0;
 const continue1 = function(event){
 
-    let x = diceRoll();
-    $(`#Pla1`).remove();
+    
+    $(`#Pla1`).remove();   ///remove the element 
     let y = pla1Span();
-    $(`#row-1`).children().eq(x).append(`${y}`);
-   
+    let p1firstRandom =  diceRoll();  ///grab the element 
+    countPl1 +=  p1firstRandom;  
+    let rowP1 = countPl1 / 10;
+
+    if(rowP1 / rowP1 === 1 )
+    {
+        rowP1 = countPl1 / 10;    //rowp1 initialization
+    }else {
+        rowP1 = rowP1 % 10
+    }
+    
+if(countPl1 > 10 ){              
+
+    $(`#row-${rowP1}`).children().eq(p1firstRandom).append(`${y}`);
+}else{
+    $(`#row-1`).children().eq(countPl1).append(`${y}`);
+}
 
 }
- const continue2 = function(event){
 
-    let z = diceRoll1();
+var countPl2 = 0;
+ const continue2 = function(event){
     $(`#Pla2`).remove();
     let y = pla2Span();
-    $(`#row-1`).children().eq(z).append(`${y}`);
+    let p2firstRandom =  diceRoll1(); 
+    countPl2 +=  p2firstRandom;
+    let rowP2 = countPl2 / 10;
+
+    if(rowP2 / rowP2 === 1 )
+    {
+        rowP2 = countPl2 / 10;    //rowp2 initialization
+    }else {
+        rowP2 = rowP2 % 10
+    }
     
+if(countPl2 > 10 ){              
+
+    $(`#row-${rowP2}`).children().eq(p2firstRandom).append(`${y}`);
+}else{
+    $(`#row-1`).children().eq(countPl2).append(`${y}`);
+}
  }
 
 
