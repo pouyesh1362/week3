@@ -245,15 +245,22 @@ $(`#player1Score`).remove();
 
 }
 
-const ladderRuls = function(){
 
-    const ladderPosition  = [1,6,7,14,]
+/////////////////NOTE Ladder rules //////////////////////
+const ladderRuls = function(y){
 
+    const ladderDown  = [1,6,7,14,20,27,35,50,70,77,86];
+    const ladderTop = [37,13,30,25,41,83,43,66,90,97,93];
 
+    for(let i = 0 ; i < ladderDown.length; i++){
+        if( y === ladderDown[i]){
+                y = ladderTop[i]
+            }
+        }
+    
+    return y ;
 
-}
-
-
+    }
 
 
 
@@ -271,6 +278,8 @@ const continue1 = function(event){
     
 
     countPl1 +=  p1firstRandom;  
+
+    countPl1 = ladderRuls(countPl1);
 
     if(countPl1 > 99){
         countPl1 = lastStage(countPl1 , p1firstRandom);  
@@ -305,7 +314,10 @@ var p2firstRandom = 0 ;
     let p2firstRandom =  diceRoll1(); 
      //role a random dice 
     
-    countPl2 +=  p2firstRandom;    ///add the dice num to total
+    countPl2 +=  p2firstRandom;///add the dice num to total
+
+    countPl2 = ladderRuls(countPl2);
+
     if(countPl2 > 99){
        countPl2 = lastStage(countPl2 , p2firstRandom);
           
