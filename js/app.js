@@ -42,35 +42,7 @@ function tableMaker(mainTable ){
 }
 tableMaker(mainTable);
 
-// const MainDiv = `<div class="mainTable"></div>`
 
-// const mainTable = `
-// <div></div>
-// <div></div>
-// <div></div>
-// <div></div>
-// <div></div>
-// <div></div>
-// <div></div>
-// <div></div>
-// <div></div>
-// <div></div>
-// `;
-
-// const mainTableDiv = `<div class = "mainTable" ></div>`;
-
-// function tableMaker(mainTable ){
-//     $('main').append(`${mainTableDiv}`);
-
-//         // add a for loop to create divs individually, adding classes as we go
-//         for (let j = 100 ; j >0 ; j--){
-//             $(`.mainTable`).append(`<div class= "square-${j}"></div>`);
-//             //creating and adding a class  to the element <div></div>
-
-//         }
-//     }
-
-// tableMaker(mainTable);
 
 
 
@@ -238,7 +210,8 @@ const startGameDice2 = function(event){
 
 
 ////////////////////////GAME start positioning the player if they have 6 
-///////NOTE /////wining roles and score display /////
+
+/////last stage rules are implimented ////////////////////
 
 function lastStage(y , x){
     
@@ -249,7 +222,7 @@ function lastStage(y , x){
     
 
 
-
+///////NOTE /////wining rules and score display /////
 
 const winer = function(){
 
