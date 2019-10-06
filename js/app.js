@@ -102,7 +102,7 @@ event.preventDefault();
  const valInputName1 = $(`.playerNameInput1`).val();
 
  const newPlayerForm1 = `
-<p id="player1Score">${valInputName1} score :<span class="player1Score"> 0 </span> </p><input class='ready1' type="image" src="./images/ready.png">`
+<p id="player1Score">${valInputName1}  :<span class="player1Score">  </span> </p><input class='ready1' type="image" src="./images/ready.png">`
 
    
  if(valInputName1 === "")
@@ -119,7 +119,7 @@ event.preventDefault();
 event.preventDefault();{
 const valInputName2 = $(`.playerNameInput2`).val();
 const newPlayerForm2 =`
-<p id="player2Score">${valInputName2} score :<span class="player2Score"> 0 </span> </p><input class='ready2' type="image" src="./images/ready.png">`
+<p id="player2Score">${valInputName2} :<span class="player2Score">  </span> </p><input class='ready2' type="image" src="./images/ready.png">`
 
 if(valInputName2 === ""){
      alert("please enter a valid name!")
@@ -238,23 +238,66 @@ const startGameDice2 = function(event){
 
 
 ////////////////////////GAME start positioning the player if they have 6 
+///////NOTE /////wining roles and score display /////
+
+function lastStage(y , x){
+    
+    
+    y = y- x;
+    return y ;
+    }
+    
+
+
+
+
+const winer = function(){
+
+    if(countPl1 === 99){
+    
+        $(`.pla2`).remove();
+        $(`.diceDisplay`).remove();
+        $(`.dice`).attr(`src` , `./images/pla1.png`);
+$(`.player1Score`).text(`is the winner !! `);
+$(`#player2Score`).remove();
+
+    }else if(countPl2 ===99){
+        $(`.pla1`).remove();
+        $(`.diceDisplay`).remove();
+        $(`.dice`).attr(`src` , `./images/pla2.png`);
+$(`.player2Score`).text(` is the winner !!`);
+$(`#player1Score`).remove();
+
+    }
+
+}
+
+
+
+
+
 /////////NOTE ///////////Game continue//////////////////////
 
 var countPl1 = 0;
+var p1firstRandom = 0;
 const continue1 = function(event){
 
     
     $(`#Pla1`).remove();   ///remove the element 
     let y = pla1Span();
-    let p1firstRandom =  diceRoll();  ///grab the element 
+    p1firstRandom =  diceRoll();  ///grab the element 
+
+    
+
     countPl1 +=  p1firstRandom;  
+
+    if(countPl1 > 99){
+        countPl1 = lastStage(countPl1 , p1firstRandom);  
+      }
+    
     let rowP1 =Math.floor(countPl1/ 10); 
     let index1 = countPl1 % 10;
-    
-    console.log(rowP1);
-    console.log(`index1 `,index1);
-    console.log(`countPl2` , countPl1);
-    
+
 if(countPl1 >= 10 ){              
 
     $(`#row-${rowP1+1}`).children().eq(9 -  index1).append(`${y}`);
@@ -262,21 +305,33 @@ if(countPl1 >= 10 ){
     $(`#row-1`).children().eq(countPl1).append(`${y}`);
 }
 
+  if(countPl1 === 99) {
+     winer();
+     return;
+ }
+ 
 }
 
 var countPl2 = 0;
- const continue2 = function(event){
-    $(`#Pla2`).remove();
-    let y = pla2Span();
-    let p2firstRandom =  diceRoll1(); 
-    countPl2 +=  p2firstRandom;
-    let rowP2 = Math.floor(countPl2/ 10); 
-    let index2 = countPl2 % 10;
-    
-    console.log(rowP2);
-    console.log(`index2 `,index2);
+var p2firstRandom = 0 ;
 
-    console.log(`countPl2` , countPl2);
+ const continue2 = function(event){
+    $(`#Pla2`).remove();               //remove the pla2 initial position 
+    let y = pla2Span();                // add the Pla2 span position 
+    let p2firstRandom =  diceRoll1(); 
+     //role a random dice 
+    
+    countPl2 +=  p2firstRandom;    ///add the dice num to total
+    if(countPl2 > 99){
+       countPl2 = lastStage(countPl2 , p2firstRandom);
+          
+      }
+
+    let rowP2 = Math.floor(countPl2/ 10);      
+    let index2 = countPl2 % 10;
+        
+
+    console.log(countPl2);
     
 if(countPl2 >= 10 ){              
 
@@ -284,9 +339,17 @@ if(countPl2 >= 10 ){
 }else{
     $(`#row-1`).children().eq(countPl2).append(`${y}`);
 }
+
+  if(countPl2 === 99){              //check if the pla2 is a winner 
+    winer();
+    return;
+}
+
  }
+ 
 
 
+/////////////
 
 
 
