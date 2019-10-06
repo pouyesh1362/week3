@@ -245,6 +245,14 @@ $(`#player1Score`).remove();
 
 }
 
+const ladderRuls = function(){
+
+    const ladderPosition  = [1,6,7,14,]
+
+
+
+}
+
 
 
 
@@ -271,13 +279,16 @@ const continue1 = function(event){
     let rowP1 =Math.floor(countPl1/ 10); 
     let index1 = countPl1 % 10;
 
-if(countPl1 >= 10 ){              
+    if(countPl1 >= 10 && (rowP1 + 1) % 2 === 0){              
 
-    $(`#row-${rowP1+1}`).children().eq(9 -  index1).append(`${y}`);
-}else{
-    $(`#row-1`).children().eq(countPl1).append(`${y}`);
-}
-
+        $(`#row-${rowP1+1}`).children().eq(9 - index1 ).append(`${y}`);
+    }else if(countPl1 >= 10 && (rowP1+1)%2 !== 0){
+    
+        $(`#row-${rowP1+1}`).children().eq(index1 ).append(`${y}`);
+        
+    }else{
+        $(`#row-1`).children().eq(countPl1).append(`${y}`);
+    }
   if(countPl1 === 99) {
      winer();
      return;
@@ -306,9 +317,13 @@ var p2firstRandom = 0 ;
 
     console.log(countPl2);
     
-if(countPl2 >= 10 ){              
+if(countPl2 >= 10 && (rowP2 + 1) % 2 === 0){              
 
-    $(`#row-${rowP2+1}`).children().eq(9 - index2).append(`${y}`);
+    $(`#row-${rowP2+1}`).children().eq(9 - index2 ).append(`${y}`);
+}else if(countPl2 >= 10 && (rowP2+1)%2 !== 0){
+
+    $(`#row-${rowP2+1}`).children().eq(index2 ).append(`${y}`);
+    
 }else{
     $(`#row-1`).children().eq(countPl2).append(`${y}`);
 }
