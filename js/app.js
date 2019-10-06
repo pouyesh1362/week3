@@ -262,6 +262,22 @@ const ladderRuls = function(y){
 
     }
 
+////////////////////////////Snake rules //////////////////
+
+const snakeRuls = function(y){
+
+    const headOfSnake  = [15,45,48,61,63,73,88,91,94,98];
+    const tailOfSnake = [5,24,10,18,59,52,67,87,74,79];
+
+    for(let i = 0 ; i < headOfSnake.length; i++){
+        if( y === headOfSnake[i]){
+                y = tailOfSnake[i]
+            }
+        }
+    
+    return y ;
+
+    }
 
 
 /////////NOTE ///////////Game continue//////////////////////
@@ -280,6 +296,7 @@ const continue1 = function(event){
     countPl1 +=  p1firstRandom;  
 
     countPl1 = ladderRuls(countPl1);
+    countPl1 = snakeRuls(countPl1);
 
     if(countPl1 > 99){
         countPl1 = lastStage(countPl1 , p1firstRandom);  
@@ -317,6 +334,7 @@ var p2firstRandom = 0 ;
     countPl2 +=  p2firstRandom;///add the dice num to total
 
     countPl2 = ladderRuls(countPl2);
+    countPl2 = snakeRuls(countPl2);
 
     if(countPl2 > 99){
        countPl2 = lastStage(countPl2 , p2firstRandom);
