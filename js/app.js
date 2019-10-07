@@ -132,9 +132,6 @@ $(`.menueAside`).append(`${dices2}`);
     
 }
 
-
-
-
 //<------------form and reset button  display----------------
 
 
@@ -289,8 +286,6 @@ const snakeRuls = function(y){
     return y ;
 
     }
-
-
 /////////NOTE ///////////Game continue//////////////////////
 
 var countPl1 = 0;
@@ -330,6 +325,7 @@ const continue1 = function(event){
      winer();
      return;
  }
+ 
  
 }
 
@@ -384,10 +380,6 @@ const resetGame =function(event){
     location.reload();
 
 }
-
-
-
-
 
 
 ///////NOTE Players added   Aside++++++++++
