@@ -1,4 +1,9 @@
-console.log('hello');
+////////add sound to the clicks //////////
+
+
+
+
+//////
 const MainDiv = `<div class="mainTable"></div>`
 
 const mainTable = `<section>
@@ -89,6 +94,7 @@ event.preventDefault();
 /////////////addPlayer event  hide the person////
  const addPlayerName2 = function(event){
 event.preventDefault();{
+    
 const valInputName2 = $(`.playerNameInput2`).val();
 const newPlayerForm2 =`
 <p id="player2Score">${valInputName2} :<span class="player2Score">  </span> </p><input class='ready2' type="image" src="./images/ready.png">`
@@ -150,6 +156,7 @@ const diceNumber1 = diceRandom();
 $(`.dice`).attr('src' ,'./images/dice-'+diceNumber1+'.png');
 $(`.rolePlayer1`).css('display' , 'none');
 $(`.rolePlayer2`).css('display' , 'initial');
+$
 return diceNumber1;
 }
 
@@ -367,8 +374,13 @@ if(countPl2 >= 10 && (rowP2 + 1) % 2 === 0){
  
 
 
-/////////////
+ /////////////  NOTE Reset the Game ////////////
 
+const resetGame =function(event){
+
+    location.reload();
+
+}
 
 
 
@@ -402,3 +414,4 @@ $(`.menueAside`).on('click', '.ready2', startGameDice2);
 
 $(`.menueAside`).on('click', '.rolePlayer1' , continue1);
 $(`.menueAside`).on('click', '.rolePlayer2' , continue2);
+$(`.menueAside`).on('click', '#reset' , resetGame);
