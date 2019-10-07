@@ -202,3 +202,27 @@ P{
 display: inline-table;
 border: none;
 }
+
+footer{
+height:30px;
+background: rgb(48, 47, 47);
+border-radius: 20px;
+
+
+}
+
+a{
+    color:white;
+    width: 50px;
+    font-family: fantasy;
+    margin-left: 10px;
+    
+}
+a:hover{
+color:rgb(99, 99, 252);
+
+}
+
+.clearfix {
+    overflow: auto;
+  }

@@ -63,7 +63,6 @@ const form = `
 <button class='PlayerNameButton2' type="submit">Name</button>
 <input  class="playerNameInput2"type="text" placeholder="name of the player2">
 
-
 </form>
 `
 $(`.menueAside`).append(`${form}`);
@@ -203,16 +202,18 @@ const startGameDise1 = function(event){
            diceShow1();
             player1();
             
-        }
+            
+      
     }
-    
+}
 
 const startGameDice2 = function(event){
    
     if(diceRoll1() === 6) {
         diceShow2();
         player2();
-    }
+   
+}
 }
 
 
@@ -221,7 +222,6 @@ const startGameDice2 = function(event){
 /////last stage rules are implimented ////////////////////
 
 function lastStage(y , x){
-    
     
     y = y- x;
     return y ;
@@ -238,13 +238,17 @@ const winer = function(){
         $(`.pla2`).remove();
         $(`.diceDisplay`).remove();
         $(`.dice`).attr(`src` , `./images/pla1.png`);
+        $(`#player1Score`).css("height", '50px');
 $(`.player1Score`).text(`is the winner !! `);
 $(`#player2Score`).remove();
+
+
 
     }else if(countPl2 ===99){
         $(`.pla1`).remove();
         $(`.diceDisplay`).remove();
         $(`.dice`).attr(`src` , `./images/pla2.png`);
+        $(`#player2Score`).css("height", '50px');
 $(`.player2Score`).text(` is the winner !!`);
 $(`#player1Score`).remove();
 
@@ -372,7 +376,6 @@ if(countPl2 >= 10 && (rowP2 + 1) % 2 === 0){
 
  }
  
-
 
  /////////////  NOTE Reset the Game ////////////
 
